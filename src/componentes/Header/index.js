@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext } from "react";
 import Eevee from "../../images/Eevee.jpg";
-import carrito from "../../images/carrito.svg";
+import carritocompra from "../../images/carrito.svg";
 import { Link } from "react-router-dom";
+import { DataContext } from "../../context/Dataprovider";
 
 const Encabezamiento = () => {
+    const value = useContext(DataContext)
+    const [menu, setMenu] = value.menu
+    const [carrito] = value.carrito
+
+    const toogleMenu = () => {
+        setMenu(!menu);
+    }
+
   return (
     <header>
         <Link to="../Inicio/index.js">
@@ -19,9 +28,9 @@ const Encabezamiento = () => {
                 <Link to='../Productos/index.js'>PRODUCTOS</Link>
             </li>
         </ul>
-        <div className="carrito">
-            <img src={carrito} alt='carrito'/>
-            <span className='total'>0</span>
+        <div className="carritodecompra" onClick={toogleMenu}>
+            <img src={carritocompra} alt='carrito'/>
+            <span className='total'>{carrito.length}</span>
         </div>
     </header>
   )

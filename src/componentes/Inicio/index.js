@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 import Portada from "../../images/inicio.jpg";
 import { Link } from "react-router-dom";
 
 const Inicio = () => {
   return (
     <div className='inicio'>
-      <Link to="./index.js">
+      <Link to="../Inicio/index.js">
         <h1>Inicio</h1>
       </Link>
       <Link to="../Productos/index.js">
